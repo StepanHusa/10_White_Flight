@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>_10_White_Flight</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Standardni-rozlozeni-ruske-klavesnice.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Standardni-rozlozeni-ruske-klavesnice.jpg" />
+  </ItemGroup>
+
+</Project>
