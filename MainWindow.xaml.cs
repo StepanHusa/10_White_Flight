@@ -30,11 +30,20 @@ namespace _10_White_Flight
         internal bool[,] Output;
         int seed;
         int year = 0;
-        List<double> times = new();        
+        int neighbours = 5;
+        
+
 
         private void RunButton_Click(object sender, RoutedEventArgs e)
         {
-            if(SeedTextbox.Text!="")seed = Convert.ToInt32(SeedTextbox.Text);
+            try
+            {
+                neighbours = Convert.ToInt16(ToleranceTextbox.Text);
+                if (neighbours < 0 | neighbours > 8) throw new Exception();
+            }
+            catch { MessageBox.Show("not valid input"); }
+
+            if (SeedTextbox.Text!="")seed = Convert.ToInt32(SeedTextbox.Text);
             else { RandomSeedButton_Click(); seed = Convert.ToInt32(SeedTextbox.Text); }
 
             int size;
@@ -80,7 +89,7 @@ namespace _10_White_Flight
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            Regex regex = new("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
@@ -108,8 +117,6 @@ namespace _10_White_Flight
             List<Point> toMoveBl = new();
 
 
-            Stopwatch sw = new();
-            sw.Start();
             for (int i = 1; i < a.GetLength(0) - 1; i++)
                 for (int j = 1; j < a.GetLength(1) - 1; j++)
                 {
@@ -125,13 +132,6 @@ namespace _10_White_Flight
                     else if (rand.Next(100) < 30 & naigh < 5)
                         toMoveBl.Add(new Point(i, j));
                 }
-            sw.Stop();
-            double t = sw.Elapsed.TotalMilliseconds;
-            times.Add(t);
-            double c = 0;
-            for (int i = 0; i < times.Count; i++)
-                c += times[i];
-            double aver = c / times.Count;
 
             List<Point> toMove = new();
             toMove.AddRange(toMoveBl);
@@ -170,7 +170,6 @@ namespace _10_White_Flight
             year++;
             return a;
         }
-
 
     }
 

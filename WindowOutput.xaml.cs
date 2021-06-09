@@ -19,8 +19,8 @@ namespace _10_White_Flight
     /// </summary>
     public partial class WindowOutput : Window
     {
-        int outputStyleIndex=0;
-        public WindowOutput( int osi=0)
+        readonly int outputStyleIndex=0;
+        public WindowOutput(int osi=0)
         {
 
             InitializeComponent();

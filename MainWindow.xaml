@@ -20,5 +20,10 @@
             <MenuItem Header="B &amp; W"/>
             <MenuItem Header="X O"/>
         </ComboBox>
+        <TextBox Name="ToleranceTextbox" HorizontalAlignment="Left" Margin="120,150,0,0" Padding="1,1,1,1" Text="4" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="120"
+                 MaxLength="1" PreviewTextInput="NumberValidationTextBox" />
+        <TextBlock HorizontalAlignment="Left" Margin="40,150" Text="Tolerance" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="250,150" Text="different neighbours are ok" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
